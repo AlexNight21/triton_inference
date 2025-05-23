@@ -1,5 +1,6 @@
 # ignore models
-triton/models/classifier_onnx/1/resnet101.onnx
+triton/models/classifier_onnx/1/model.onnx
+models/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
