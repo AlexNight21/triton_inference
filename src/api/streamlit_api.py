@@ -19,7 +19,7 @@ class StreamlitForm:
         uploaded_file = st.file_uploader("Upload image")
 
         if uploaded_file is not None:
-            file_path = os.path.join(self.img_path, uploaded_file.name)
+            file_path = os.path.join(self.img_path, "image.jpg")
 
             with open(file_path, "wb") as f:
                 f.write(uploaded_file.getbuffer())
