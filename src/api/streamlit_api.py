@@ -4,17 +4,17 @@ import os
 
 class StreamlitForm:
     def __init__(
-            self, 
+            self,
+            classes_data, 
             title="Triton test",
             img_path="src/api/imgs"):
+        self.classes_data = classes_data
         self.title = title
         self.img_path = img_path
 
     def get_stremlit_form(self, triton_infer):
+        
         st.title(self.title)
-
-        if st.button("check model config"):
-            triton_infer.infer_image()
 
         uploaded_file = st.file_uploader("Upload image")
 
@@ -24,6 +24,8 @@ class StreamlitForm:
             with open(file_path, "wb") as f:
                 f.write(uploaded_file.getbuffer())
 
-            st.success(f"File saved: {file_path}")
+            st.success(f"File saved!")
 
-        st.text("test")
+        if st.button("Check info"):
+            cls_idx, cls_logits = triton_infer.infer_image()
+            st.text(f"class: {self.classes_data[cls_idx]}\nconfidence: {cls_logits}")

@@ -1,0 +1,9 @@
+global:
+  scrape_interval: 5s # By default, scrape targets every 15 seconds.
+
+scrape_configs:
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+  - job_name: 'triton'
+
+    static_configs:
+      - targets: ['triton:8002']

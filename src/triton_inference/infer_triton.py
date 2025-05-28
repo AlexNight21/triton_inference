@@ -53,8 +53,9 @@ class InferenceModule:
         cls_idx = np.argmax(output)
         cls_logits = output[cls_idx]
 
-        print(f"Predicted class index: {cls_idx}")
-        print(f"Predicted class logits: {cls_logits}")
+        cls_logits = round(cls_logits*100, 2)
+
+        return cls_idx, cls_logits
 
 
     def parse_model_metadata(self, model_name):

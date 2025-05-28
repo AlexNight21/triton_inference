@@ -1,6 +1,9 @@
 # ignore models
 triton/models/classifier_onnx/1/model.onnx
-models/
+triton/models/classifier_trt/1/model.plan
+/models
+trtexec_workspace/
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
